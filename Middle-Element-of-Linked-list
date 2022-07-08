@@ -1,0 +1,17 @@
+class Solution{
+    public:
+    /* Should return data of middle node. If linked list is empty, then  -1*/
+    int getMiddle(Node *head)
+    {
+        // Your code here
+        Node*n1;
+        Node*n2;
+        n1=head;
+        n2=head;
+        while(n2!=NULL&&n2->next!=NULL){
+            n2=n2->next->next;
+            n1=n1->next;
+        }
+        return n1->data;
+    }
+};
