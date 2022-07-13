@@ -1,0 +1,13 @@
+bool search(Node* root, int x) {
+    // Your code here
+    if(root==0)return false;
+    while(root!=0){
+        if(root->data==x)
+        return true;
+        else if(root->data>x)
+        root=root->left;
+        else
+        root=root->right;
+    }
+    return false;
+}
