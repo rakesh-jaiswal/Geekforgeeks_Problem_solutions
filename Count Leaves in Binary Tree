@@ -1,0 +1,8 @@
+int countLeaves(Node* root)
+{
+  // Your code here
+  if(root==0)return 0;
+  if(root->left==0&&root->right==0)
+  return 1;
+  return countLeaves(root->left)+countLeaves(root->right);
+}
