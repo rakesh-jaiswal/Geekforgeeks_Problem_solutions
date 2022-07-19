@@ -1,0 +1,14 @@
+class Solution{
+public:	
+	vector<int> constructLowerArray(int *arr, int n) {
+	    // code here
+	   typedef tree<double,null_type,less_equal<double>,rb_tree_tag,tree_order_statistics_node_update>ordered_set;
+	    vector<int>ans(n);
+	    ordered_set S;
+	    for(int i=n-1;i>=0;i--){
+	       S.insert(arr[i]+0.1);
+	       ans[i]=S.order_of_key(arr[i]);
+	    }
+	    return ans;  
+	}
+};
