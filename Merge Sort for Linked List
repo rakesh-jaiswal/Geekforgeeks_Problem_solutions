@@ -1,0 +1,21 @@
+class Solution{
+  public:
+    //Function to sort the given linked list using Merge Sort.
+    Node* mergeSort(Node* head) {
+        // your code here
+    vector<int>v;
+    Node*t=head;
+    while(t){
+        v.push_back(t->data);
+        t=t->next;
+    }
+    sort(v.begin(),v.end());
+    t=head;
+    int i=0;
+    while(t){
+        t->data=v[i++];
+        t=t->next;
+    }
+    return head;
+    }
+};
