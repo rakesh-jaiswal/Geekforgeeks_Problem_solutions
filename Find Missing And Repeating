@@ -1,0 +1,22 @@
+class Solution{
+public:
+    int *findTwoElement(int *arr, int n) {
+        // code here
+        // int brr[2];
+        int a,b;
+        unordered_map<int,bool>m;
+        for(int i=0;i<n;i++){
+            if(m.find(arr[i])==m.end())
+            m[arr[i]]=true;
+            else 
+            a=arr[i];
+        }
+        for(int i=1;i<=n;i++){
+            if(m.find(i)==m.end())
+            b=i;
+        }
+        arr[0]=a;
+        arr[1]=b;
+        return arr;
+    }
+};
