@@ -1,0 +1,25 @@
+class Solution{
+    public:
+    //Function to find if there exists a triplet in the 
+    //array A[] which sums up to X.
+    bool find3Numbers(int nums[], int n, int x)
+    {
+        //Your Code Here
+         sort(nums,nums+n);
+        for(int i=0;i<n;i++){
+            int target=-nums[i]+x;
+            int front = i+1,back=n-1;
+            while(front<back){
+                if(nums[front]+nums[back]==target){
+                    return true;
+                      front++;
+                    back--;
+                }
+                else if(nums[front]+nums[back]>target)back--;
+                else front++;
+            }
+          }
+        return false;
+    }
+
+};
