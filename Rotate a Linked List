@@ -1,0 +1,24 @@
+class Solution
+{
+    public:
+    Node*pushhtot(Node*head, Node*tail){
+        Node*temp=new Node(head->data);
+        tail->next=temp;
+        head=head->next;
+        return head;
+    }
+    //Function to rotate a linked list.
+    Node* rotate(Node* head, int k)
+    {
+        // Your code here
+        Node*curr=head;
+        while(curr->next!=NULL)
+        curr=curr->next;
+        for(int i=0;i<k;i++){
+            head=pushhtot(head, curr);
+            curr=curr->next;
+        }
+        return head;
+       
+    }
+};
