@@ -1,0 +1,28 @@
+class Solution
+{
+    public:
+    void printsubset(int ind, vector<int>&ds, vector<int>&arr,vector<vector<int>>&ans, int n){
+        
+            ans.push_back(ds);
+        for(int i=ind;i<arr.size();i++){
+            if(i!=ind&&arr[i]==arr[i-1])
+            continue;
+            ds.push_back(arr[i]);
+            printsubset(i+1, ds, arr, ans, n);
+            ds.pop_back();
+        }
+    }
+    //Function to find all possible unique subsets.
+    vector<vector<int> > AllSubsets(vector<int> arr, int n)
+    {
+        // code here 
+        vector<vector<int>>ans;
+        vector<int>ds;
+   sort(arr.begin(),arr.end());
+        printsubset(0,ds,arr,ans,n);
+        // sort(ans.begin(), ans.end());
+        // unordered_map<vector<int>>m;
+        
+        return ans;
+    }
+};
