@@ -1,0 +1,27 @@
+class Solution{
+public:
+  
+  int t[501][501];
+   
+    
+     int solve(int nums[],int i,int j){
+            int mn=INT_MAX;
+            if(i>=j)return 0;
+            if(t[i][j]!=-1)
+                return t[i][j];
+            for(int k=i;k<j;k++){
+                int tempans=solve(nums,i,k)+solve(nums,k+1,j)+nums[i-1]*nums[k]*nums[j];
+                mn=min(mn,tempans);
+            }
+            return t[i][j]=mn;
+        }
+    
+    int matrixMultiplication(int n, int nums[])
+    {
+        // code here
+            memset(t,-1,sizeof(t));
+        // int n=nums.size();/
+        int i=1,j=n-1;
+         return solve(nums,i,j);
+    }
+};
